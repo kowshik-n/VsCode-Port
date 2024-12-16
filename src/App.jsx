@@ -314,33 +314,6 @@ function App() {
   const [isSidebarVisible, setIsSidebarVisible] = useState(true);
   const [isExplorerOpen, setIsExplorerOpen] = useState(true);
   const [activeSection, setActiveSection] = useState("home");
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = ["home", "about", "skills", "projects", "contact"];
-      const scrollPosition = window.scrollY + 100;
-
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const offsetTop = element.offsetTop;
-          const height = element.offsetHeight;
-
-          if (
-            scrollPosition >= offsetTop &&
-            scrollPosition < offsetTop + height
-          ) {
-            setActiveSection(section);
-            break;
-          }
-        }
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
     <div className="relative">
       <div className="header w-full flex items-center justify-between bg-neutral-800 text-white top-0 left-0 z-50 sticky h-7 border-b border-[#3c3c3c]">

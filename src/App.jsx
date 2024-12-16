@@ -302,7 +302,7 @@ const Navbar = () => {
             }}
           >
             {icon}
-            <span className="pl-2 font-medium capitalize">{section}.jsx</span>
+            <span className="pl-2 font-medium capitalize">{section}</span>
           </div>
         );
       })}
@@ -401,7 +401,7 @@ function App() {
                 <div className="w-full lg:w-1/5 flex justify-center"></div>
                 <div className="w-full lg:w-1/3 flex justify-center">
                   <img
-                    src="/public/1.jpg"
+                    src="/1.jpg"
                     alt="Profile"
                     className="w-48 h-48 sm:w-56 sm:h-56 lg:w-72 lg:h-72 rounded-full object-cover object-top border-4 border-indigo-500/30 shadow-xl hover:shadow-2xl transition-all duration-300"
                   />

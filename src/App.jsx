@@ -7,8 +7,16 @@ import javascript from "./assets/icons/javascript.svg";
 import nodejs from "./assets/icons/nodejs.svg";
 import react from "./assets/icons/react.svg";
 import contact from "./assets/icons/contact.svg";
+import waveHand from "./assets/icons/waveHand.svg";
 
 import "./App.css";
+
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+// Register ScrollTrigger plugin
+gsap.registerPlugin(ScrollTrigger);
 
 const SkillIcon = ({ children }) => (
   <div className="w-8 h-8 sm:w-12 sm:h-12 flex items-center justify-center text-indigo-400 bg-indigo-400/10 rounded-xl">
@@ -97,7 +105,8 @@ const skillCategories = {
     "CSS3",
     "TailwindCSS",
   ],
-  "Backend Development": ["Node.js", "Express.js", "RESTful APIs", "MongoDB"],
+  "Backend Development": ["Node.js", "Express.js", "RESTful APIs"],
+  "Database & Cloud": ["MongoDB", "PostgreSQL"],
 };
 
 const skillIcons = {
@@ -193,23 +202,21 @@ const skillIcons = {
     </svg>
   ),
   MongoDB: (
-    <svg className="w-6 h-6" viewBox="0 0 128 128">
-      <path
-        fill="currentColor"
-        d="M90.491 57.282c-.37-4.79-1.496-9.409-3.062-13.934-3.244-10.104-8.45-19.046-15.783-26.74-1.854-1.946-3.916-3.729-5.209-6.151-.818-1.532-1.597-3.085-2.394-4.629l-.505-1.273c-.085.292-.139.396-.142.501-.065 2.517-1.491 4.224-3.267 5.817-1.997 1.793-3.856 3.739-5.775 5.618l-5.901 7.763c-1.592 2.925-3.182 5.85-4.772 8.775l-3.19 8.617-.096.134c-1.756 5.768-2.622 11.698-3.048 17.688-.16 2.251.022 4.535.149 6.798.181 3.235.743 6.415 1.586 9.545 3.062 11.372 9.276 20.805 17.771 28.819 1.579 1.489 3.199 2.843 4.847 4.26.282-.965.507-1.93.763-2.895.256-.961.515-1.917.688-2.881-.174.964-.369 1.92-.562 2.881l-.826 2.895.738 2.501.684 3.884.326 4.053c-.003.823-.036 1.648.014 2.47.012.21.288.404.442.606l1.376.483 1.434.558-.246-3.603-.011-3.548.495-5.405.359-1.177 1.027-1.82c1.268-1.02 2.629-1.946 3.784-3.081 2.09-2.054 4.175-4.134 6.045-6.383a47.846 47.846 0 006.191-9.516c1.122-2.284 2.178-4.614 3.052-7.001.77-2.104 1.247-4.315 1.854-6.479.054-.156.126-.309.16-.468 1.254-5.841 1.465-11.741 1.004-17.682zm-23.599 49.375l-.805-1.763.805 1.763 1.183 1.01-1.183-1.01z"
-      />
+    <svg
+      className="w-4 h-4 sm:w-6 sm:h-6"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+    >
+      <path d="M17.193 9.555c-1.264-5.58-4.252-7.414-4.573-8.115-.28-.394-.53-.954-.735-1.44-.036.495-.055.685-.523 1.184-.723.566-4.438 3.682-4.74 10.02-.282 5.912 4.27 9.435 4.888 9.884l.07.05A73.49 73.49 0 0111.91 24h.481c.114-1.032.284-2.056.51-3.07.417-.296.604-.463.85-.693a11.342 11.342 0 003.639-8.464c.01-.814-.103-1.662-.197-2.218zm-5.336 8.195s0-8.291.275-8.29c.213 0 .49 10.695.49 10.695-.381-.045-.765-1.76-.765-2.405z" />
     </svg>
   ),
   PostgreSQL: (
-    <svg className="w-6 h-6" viewBox="0 0 128 128">
-      <path
-        fill="currentColor"
-        d="M93.809 92.112c.785-6.533.55-7.492 5.416-6.433l1.235.108c3.742.17 8.637-.602 11.513-1.938 6.191-2.873 9.861-7.668 3.758-6.409-13.924 2.873-14.881-1.842-14.881-1.842 14.703-21.815 20.849-49.508 15.543-56.287-14.47-18.489-39.517-9.746-39.936-9.52l-.134.025c-2.751-.571-5.83-.912-9.289-.968-6.301-.104-11.082 1.652-14.709 4.402 0 0-44.683-18.409-42.604 23.151.442 8.841 12.672 66.898 27.26 49.362 5.332-6.412 10.484-11.834 10.484-11.834 2.558 1.699 5.622 2.567 8.834 2.255l.249-.212c-.078.796-.044 1.575.099 2.497-3.757 4.199-2.653 4.936-10.166 6.482-7.602 1.566-3.136 4.355-.221 5.084 3.535.884 11.712 2.136 17.238-5.598l-.22.882c1.474 1.18 1.375 8.477 1.583 13.69.209 5.214.558 10.079 1.621 12.948 1.063 2.868 2.317 10.256 12.191 8.14 8.252-1.764 14.561-4.309 15.136-27.985"
-      ></path>
-      <path
-        fill="currentColor"
-        d="M75.458 125.256c-4.367 0-7.211-1.689-8.938-3.32-2.607-2.46-3.641-5.629-4.259-7.522l-.267-.79c-1.244-3.358-1.666-8.193-1.916-14.419-.038-.935-.064-1.898-.093-2.919-.021-.747-.047-1.684-.085-2.664a18.8 18.8 0 01-1.077 1.131c-2.811 2.687-7.387 4.133-12.172 3.83-.006.01-.015.018-.022.025-1.386 2.382-2.246 4.963-2.035 7.377-.023.182-.043.364-.067.544-.502.155-1.248.237-2.184.237-2.709 0-6.916-.905-9.081-5.338-.334.201-.67.395-1.005.59-1.625.95-3.312 1.932-4.193 3.297-.604.935-1.702 2.943-1.358 6.241 0 .037.003.075.004.112-.413.201-.824.401-1.232.602-1.671.814-3.401 1.656-4.621 2.83-1.229 1.177-1.785 3.669-.714 5.606.929 1.682 2.968 2.546 6.078 2.546 4.759 0 9.416-1.959 12.476-3.315.827-.368 1.716-.763 2.582-1.149 5.339-2.365 8.99-4.031 14.849-4.893 3.617-.53 7.19-.821 10.641-1.105 4.622-.379 9.045-.739 13.475-1.678.021-.004.043-.009.064-.014 3.647-.831 7.02-1.594 9.356-3.879l.557-.547-.225-.775c-.439-1.507-1.454-2.061-2.105-2.323-1.03-.418-2.26-.419-3.271-.421h-.138c-.795-.002-1.932-.006-2.897-.563-.318-.185-.597-.39-.836-.605z"
-      ></path>
+    <svg
+      className="w-4 h-4 sm:w-6 sm:h-6"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+    >
+      <path d="M17.128 0a10.134 10.134 0 00-2.755.403l-.11.031C13.111.802 11.595 1.483 9.919 2.382 8.241 3.28 6.538 4.399 4.906 5.757c-1.393 1.16-2.463 2.36-3.13 3.66-.41.81-.63 1.66-.63 2.57 0 1.19.41 2.35 1.08 3.29.45.62 1.01 1.18 1.64 1.66.27.21.56.4.84.58.12.08.24.15.36.22.11.07.22.13.34.19.12.06.24.12.36.18.57.27 1.17.51 1.79.71.62.2 1.27.35 1.93.46.66.11 1.34.17 2.03.17s1.37-.06 2.03-.17c.66-.11 1.31-.26 1.93-.46.62-.2 1.22-.44 1.79-.71.12-.06.24-.12.36-.18.12-.06.23-.12.34-.19.12-.07.24-.14.36-.22.28-.18.57-.37.84-.58.63-.48 1.19-1.04 1.64-1.66.67-.94 1.08-2.1 1.08-3.29 0-.91-.22-1.76-.63-2.57-.67-1.3-1.74-2.5-3.13-3.66-1.63-1.36-3.33-2.48-5.01-3.37-1.68-.9-3.19-1.58-4.35-1.95l-.11-.03A10.325 10.325 0 0017.129 0zM5.319 16.811c-.01-.01-.01-.02-.02-.03l-.04-.05c-.4-.48-.75-1.01-1.05-1.59-.3-.58-.53-1.19-.69-1.84-.16-.64-.24-1.3-.24-1.98 0-.67.08-1.33.24-1.97.16-.64.39-1.25.69-1.83.3-.58.65-1.11 1.05-1.59.01-.01.02-.03.03-.04.01-.01.01-.02.02-.03.39-.46.83-.88 1.31-1.26.48-.37 1-.7 1.55-.97.55-.27 1.13-.49 1.73-.65.6-.16 1.21-.24 1.84-.24.63 0 1.24.08 1.84.24.6.16 1.18.38 1.73.65.55.27 1.07.6 1.55.97.48.38.92.8 1.31 1.26.01.01.01.02.03.03.04.01.01.02.03.03.04.4.48.75 1.01 1.05 1.59.3.58.53 1.19.69 1.83.16.64.24 1.3.24 1.97 0 .68-.08 1.34-.24 1.98-.16.65-.39 1.26-.69 1.84-.3.58-.65 1.11-1.05 1.59l-.03.04c-.01.01-.01.02-.02.03-.39.46-.83.88-1.31 1.26-.48.38-1 .7-1.55.97-.55.27-1.13.49-1.73.65-.6.16-1.21.24-1.84.24-.63 0-1.24-.08-1.84-.24-.6-.16-1.18-.38-1.73-.65-.55-.27-1.07-.59-1.55-.97-.48-.38-.92-.8-1.31-1.26zM16.75 6.22c-.4-.55-.83-1.04-1.3-1.47-.47-.43-.97-.8-1.51-1.11-.54-.31-1.11-.54-1.71-.7-.6-.16-1.22-.24-1.86-.24-.64 0-1.26.08-1.86.24-.6.16-1.17.39-1.71.7-.54.31-1.04.68-1.51 1.11-.47.43-.9.92-1.3 1.47-.4.55-.74 1.13-1.01 1.76-.27.63-.47 1.28-.6 1.97-.13.69-.2 1.4.2 2.12 0 .73.07 1.44.2 2.13.13.69.33 1.35.6 1.98.27.63.61 1.21 1.01 1.76.4.55.83 1.04 1.3 1.47.47.43.97.8 1.51 1.11.54.31 1.11.54 1.71.7.6.16 1.22.24 1.86.24.64 0 1.26-.08 1.86-.24.6-.16 1.17-.39 1.71-.7.54-.31 1.04-.68 1.51-1.11.47-.43.9-.92 1.3-1.47.4-.55.74-1.13 1.01-1.76.27-.63.47-1.29.6-1.98.13-.69.2-1.4.2-2.13 0-.73-.07-1.43-.2-2.12-.13-.69-.33-1.34-.6-1.97-.27-.63-.61-1.21-1.01-1.76z" />
     </svg>
   ),
   MySQL: (
@@ -226,6 +233,15 @@ const skillIcons = {
         fill="currentColor"
         d="M121.8 93.1c-6.7 3.5-41.5 17.8-49 21.4-7.5 3.6-11.7 3.6-17.7 1-5.9-2.7-42.5-17.6-49.2-20.7-3.3-1.6-5-2.9-5-4.2V78.3c0 0 48-10.5 55.9-13.2 7.9-2.8 10.6-2.9 17.1-.4 6.6 2.5 47.4 9.9 54.2 12.3v12.6c0 1.2-1.5 2.3-6.3 3.5zm0-17.5c-6.7 3.5-41.5 17.8-49 21.4-7.5 3.6-11.7 3.6-17.7 1-5.9-2.7-42.5-17.6-49.2-20.7-3.3-1.6-5-2.9-5-4.2V60.8c0 0 48-10.5 55.9-13.2 7.9-2.8 10.6-2.9 17.1-.4 6.6 2.5 47.4 9.9 54.2 12.3v12.6c0 1.2-1.5 2.3-6.3 3.5zm0-17.5c-6.7 3.5-41.5 17.8-49 21.4-7.5 3.6-11.7 3.6-17.7 1-5.9-2.7-42.5-17.6-49.2-20.7-3.3-1.6-5-2.9-5-4.2V43.3c0 0 48-10.5 55.9-13.2 7.9-2.8 10.6-2.9 17.1-.4 6.6 2.5 47.4 9.9 54.2 12.3v12.6c0 1.2-1.5 2.3-6.3 3.5z"
       ></path>
+    </svg>
+  ),
+  TailwindCSS: (
+    <svg
+      className="w-4 h-4 sm:w-6 sm:h-6"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+    >
+      <path d="M12.001,4.8c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 C13.666,10.618,15.027,12,18.001,12c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C16.337,6.182,14.976,4.8,12.001,4.8z M6.001,12c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 c1.177,1.194,2.538,2.576,5.512,2.576c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C10.337,13.382,8.976,12,6.001,12z" />
     </svg>
   ),
 };
@@ -314,6 +330,86 @@ function App() {
   const [isSidebarVisible, setIsSidebarVisible] = useState(true);
   const [isExplorerOpen, setIsExplorerOpen] = useState(true);
   const [activeSection, setActiveSection] = useState("home");
+
+  useGSAP(() => {
+    // Hero section animations
+    gsap.from(".hero-title", {
+      opacity: 0,
+      y: 100,
+      duration: 1,
+      ease: "power4.out",
+    });
+
+    gsap.from(".hero-text", {
+      opacity: 0,
+      y: 50,
+      duration: 1,
+      delay: 0.4,
+      ease: "power4.out",
+    });
+
+    gsap.from(".hero-buttons", {
+      opacity: 0,
+      y: 50,
+      duration: 1,
+      delay: 0.6,
+      ease: "power4.out",
+    });
+
+    // About section animations with ScrollTrigger
+    gsap.from(".about-title", {
+      scrollTrigger: {
+        trigger: ".about-title",
+        start: "top 80%",
+        toggleActions: "play none none reverse",
+      },
+      opacity: 0,
+      y: 50,
+      duration: 1,
+      ease: "power4.out",
+    });
+
+    gsap.from(".about-text", {
+      scrollTrigger: {
+        trigger: ".about-text",
+        start: "top 80%",
+        toggleActions: "play none none reverse",
+      },
+      opacity: 0,
+      y: 50,
+      stagger: 0.2,
+      duration: 1,
+      ease: "power4.out",
+    });
+
+    // Skills section animations
+    gsap.from(".skills-section", {
+      scrollTrigger: {
+        trigger: ".skills-section",
+        start: "top 80%",
+        toggleActions: "play none none reverse",
+      },
+      opacity: 0,
+      y: 50,
+      stagger: 0.2,
+      duration: 1,
+      ease: "power4.out",
+    });
+
+    gsap.from(".projects", {
+      scrollTrigger: {
+        trigger: ".projects",
+        start: "top 80%",
+        toggleActions: "play none none reverse",
+      },
+      opacity: 0,
+      y: 50,
+      stagger: 0.2,
+      duration: 1,
+      ease: "power4.out",
+    });
+  });
+
   return (
     <div className="relative">
       <div className="header w-full flex items-center justify-between bg-neutral-800 text-white top-0 left-0 z-50 sticky h-7 border-b border-[#3c3c3c]">
@@ -336,139 +432,103 @@ function App() {
           <div className="rounded-full mr-5 w-3 h-3 bg-emerald-400" />
         </div>
       </div>
-      <div className="min-h-screen bg-background flex flex-col lg:flex-row">
-        <div className="fixed left-0 top-0 h-full w-11 bg-neutral-800  flex-col py-4 z-50 border-r border-[#3c3c3c] mt-7 hidden lg:flex">
-          <div className="space-y-4">
-            <div
-              className={`h-10 text-[#858585] hover:text-white cursor-pointer flex items-center justify-center border-l-2 ${
-                isSidebarVisible
-                  ? "border-white text-white"
-                  : "border-transparent"
-              }`}
-              onClick={() => setIsSidebarVisible(!isSidebarVisible)}
-            >
-              <img src={fileExplorer} alt="File Explorer" className="w-5 h-5" />
-            </div>
-            <div className="h-12 text-[#858585] hover:text-white cursor-pointer flex items-center justify-center">
-              <img src={extensions} alt="Extensions" className="w-5 h-5" />
-            </div>
-            <div className="h-12 text-[#858585] hover:text-white cursor-pointer flex items-center justify-center">
-              <img src={git} alt="Git" className="w-5 h-5" />
-            </div>
-          </div>
-        </div>
-
+      <div className="min-h-screen bg-background flex flex-col lg:flex-row relative">
         <div
           className={`flex-1 transition-all duration-300 ${
             isSidebarVisible ? "lg:ml-[17.75rem]" : "ml-11"
           } bg-black`}
         >
           <div className="min-h-screen text-[#d4d4d4] bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
-            {isSidebarVisible && (
-              <div className="fixed left-11 top-0 h-full w-60 bg-black/90 text-white border-r border-[#3c3c3c] z-40 hidden lg:block mt-7">
-                <div className="p-4 text-sm text-[#bbbbbb] font-semibold uppercase tracking-wide">
-                  Explorer
-                </div>
-                <div className="text-[#cccccc]">
+            <div>
+              {" "}
+              <div className="fixed left-0 top-0 h-full w-11 bg-neutral-800  flex-col py-4 z-50 border-r border-[#3c3c3c] mt-7 hidden lg:flex">
+                <div className="space-y-4">
                   <div
-                    className="px-4 py-2 hover:bg-[#37373d] cursor-pointer flex items-center"
-                    onClick={() => setIsExplorerOpen(!isExplorerOpen)}
+                    className={`h-10 text-[#858585] hover:text-white cursor-pointer flex items-center justify-center border-l-2 ${
+                      isSidebarVisible
+                        ? "border-white text-white"
+                        : "border-transparent"
+                    }`}
+                    onClick={() => setIsSidebarVisible(!isSidebarVisible)}
                   >
-                    <i
-                      className={`codicon codicon-chevron-${
-                        isExplorerOpen ? "down" : "right"
-                      } mr-2 text-xs`}
-                    ></i>
-                    <i
-                      className={`codicon codicon-folder${
-                        isExplorerOpen ? "-opened" : ""
-                      } text-[#dcb67a] mr-2`}
-                    ></i>
-                    src
+                    <img
+                      src={fileExplorer}
+                      alt="File Explorer"
+                      className="w-5 h-5"
+                    />
                   </div>
-                  {isExplorerOpen && <Navbar />}
+                  <div className="h-12 text-[#858585] hover:text-white cursor-pointer flex items-center justify-center">
+                    <img
+                      src={extensions}
+                      alt="Extensions"
+                      className="w-5 h-5"
+                    />
+                  </div>
+                  <div className="h-12 text-[#858585] hover:text-white cursor-pointer flex items-center justify-center">
+                    <img src={git} alt="Git" className="w-5 h-5" />
+                  </div>
                 </div>
               </div>
-            )}
+              {isSidebarVisible && (
+                <div className="fixed left-11 top-0 h-full w-60 bg-black/90 text-white border-r border-[#3c3c3c] z-40 hidden lg:block mt-7">
+                  <div className="p-4 text-sm text-[#bbbbbb] font-semibold uppercase tracking-wide">
+                    Explorer
+                  </div>
+                  <div className="text-[#cccccc]">
+                    <div
+                      className="px-4 py-2 hover:bg-[#37373d] cursor-pointer flex items-center"
+                      onClick={() => setIsExplorerOpen(!isExplorerOpen)}
+                    >
+                      <i
+                        className={`codicon codicon-chevron-${
+                          isExplorerOpen ? "down" : "right"
+                        } mr-2 text-xs`}
+                      ></i>
+                      <i
+                        className={`codicon codicon-folder${
+                          isExplorerOpen ? "-opened" : ""
+                        } text-[#dcb67a] mr-2`}
+                      ></i>
+                      src
+                    </div>
+                    {isExplorerOpen && <Navbar />}
+                  </div>
+                </div>
+              )}
+            </div>
             <div className="space-y-20 px-4 lg:px-8">
+              {/* Hero Section */}
               <h1
                 id="home"
-                className="text-4xl md:text-7xl text-center font-extrabold bg-gradient-to-r from-blue-500 via-purple-600 to-pink-600 text-transparent bg-clip-text pt-16 animate-gradient tracking-tight"
+                className="hero-title text-4xl md:text-7xl text-center font-extrabold bg-gradient-to-r from-blue-500 via-purple-600 to-pink-600 text-transparent bg-clip-text pt-16 tracking-tight"
               >
                 Welcome to My Portfolio
               </h1>
+
               <div className="container mx-auto flex flex-col lg:flex-row items-center justify-between gap-8 px-4 lg:px-8">
                 <div className="w-full lg:w-1/5 flex justify-center"></div>
                 <div className="w-full lg:w-1/3 flex justify-center">
                   <img
                     src="/1.jpg"
                     alt="Profile"
-                    className="w-48 h-48 sm:w-56 sm:h-56 lg:w-72 lg:h-72 rounded-full object-cover object-top border-4 border-indigo-500/30 shadow-xl hover:shadow-2xl transition-all duration-300"
+                    className="hero-image w-48 h-48 sm:w-56 sm:h-56 lg:w-72 lg:h-72 rounded-full object-cover object-top border-4 border-indigo-500/30 shadow-xl hover:shadow-2xl transition-all duration-300"
                   />
                 </div>
                 <div className="w-full lg:w-2/3 flex flex-col gap-6 text-center lg:text-left">
-                  <div className="flex items-center gap-3 justify-center lg:justify-start">
+                  <div className="hero-text flex items-center gap-3 justify-center lg:justify-start">
                     <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-gray-100">
                       Kowshik
                     </h2>
-                    <svg
-                      width="36"
-                      height="36"
-                      viewBox="0 0 48 48"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="animate-wave w-8 h-8 lg:w-12 lg:h-12"
-                    >
-                      <path
-                        d="M25.4995 32.0305L31.3495 33.1555L36.1495 8.48051C36.4495 6.83051 35.3995 5.18051 33.8245 4.88051C32.1745 4.58051 30.5995 5.70551 30.2995 7.35551L25.4995 32.0305Z"
-                        fill="#FFDD67"
-                      ></path>
-                      <path
-                        d="M33.8996 4.88018C33.6746 4.80518 33.5246 4.80518 33.2996 4.80518C34.6496 5.33018 35.3996 6.75518 35.0996 8.25518L30.2996 32.9302L31.3496 33.1552L36.1496 8.48018C36.5246 6.75518 35.4746 5.18018 33.8996 4.88018Z"
-                        fill="#EBA352"
-                      ></path>
-                      <path
-                        d="M19.4995 32.7802H26.5495V5.55518C26.5495 3.53018 24.9745 1.80518 23.0245 1.80518C21.1495 1.80518 19.4995 3.45518 19.4995 5.55518V32.7802Z"
-                        fill="#FFDD67"
-                      ></path>
-                      <path
-                        d="M23.0995 1.80518C22.9495 1.80518 22.7245 1.80518 22.5745 1.88018C24.2995 2.18018 25.5745 3.68018 25.5745 5.55518V32.8552H26.6245V5.55518C26.6245 3.45518 25.0495 1.80518 23.0995 1.80518Z"
-                        fill="#EBA352"
-                      ></path>
-                      <path
-                        d="M15.7495 32.7054L21.7495 31.1304L15.2245 6.30541C14.7745 4.58041 13.0495 3.53041 11.3995 3.90541C9.74948 4.35541 8.77448 6.08041 9.22448 7.80541L15.7495 32.7054Z"
-                        fill="#FFDD67"
-                      ></path>
-                      <path
-                        d="M11.3995 3.90541L10.9495 4.13041C12.4495 4.05541 13.7995 5.03041 14.2495 6.60541L20.7745 31.4304L21.8245 31.1304L15.2245 6.30541C14.7745 4.58041 13.0495 3.53041 11.3995 3.90541Z"
-                        fill="#EBA352"
-                      ></path>
-                      <path
-                        d="M2.99937 10.355C1.57437 11.03 1.12437 12.83 1.87437 14.33L11.7744 34.055L16.7994 31.505L6.89937 11.78C6.14937 10.28 4.42437 9.68 2.99937 10.355Z"
-                        fill="#FFDD67"
-                      ></path>
-                      <path
-                        d="M2.99956 10.355C2.84956 10.43 2.69956 10.505 2.54956 10.655C3.82456 10.28 5.24956 10.955 5.92456 12.305L15.8246 32.03L16.7996 31.58L6.89956 11.78C6.14956 10.28 4.42456 9.68 2.99956 10.355Z"
-                        fill="#EBA352"
-                      ></path>
-                      <path
-                        d="M46.2744 22.2801C45.0744 19.9551 41.3244 20.1051 37.4994 24.3051C34.7994 27.2301 34.2744 28.2051 31.5744 28.1301V25.0551C31.5744 25.0551 25.7994 20.7801 14.3244 22.7301C14.3244 22.7301 7.79945 23.6301 7.79945 27.0801C7.79945 27.0801 6.67445 35.4051 8.99945 40.6551C12.4494 48.4551 30.1494 50.4801 35.6994 37.2051C36.8244 34.5801 39.0744 32.6301 41.0994 30.1551C43.4244 27.1551 47.5494 24.7551 46.2744 22.2801Z"
-                        fill="#FFDD67"
-                      ></path>
-                      <path
-                        d="M46.2745 22.28C46.0495 21.83 45.7495 21.53 45.3745 21.23C45.4495 21.305 45.5245 21.38 45.5245 21.53C46.7995 24.08 42.6745 26.405 40.1995 29.405C38.1745 31.88 35.9245 33.83 34.7995 36.455C29.9995 47.93 16.0495 47.93 10.1995 42.68C15.5245 48.68 30.5245 49.28 35.5495 37.205C36.6745 34.58 38.9245 32.63 40.9495 30.155C43.4245 27.155 47.5495 24.755 46.2745 22.28ZM32.3245 28.13C27.4495 26.33 18.7495 29.63 19.9495 38.405C19.9495 30.23 27.3745 28.205 31.4245 28.205C32.0245 28.13 32.3245 28.13 32.3245 28.13Z"
-                        fill="#EBA352"
-                      ></path>
-                    </svg>
+                    <img src={waveHand} alt="Wave Hand" className="w-6 h-6" />
                   </div>
 
-                  <p className="text-lg sm:text-xl lg:text-2xl text-gray-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                  <p className="hero-text text-lg sm:text-xl lg:text-2xl text-gray-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
                     Full Stack Developer passionate about building modern web
                     applications with React and Node.js. I love turning ideas
                     into elegant, scalable solutions.
                   </p>
 
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                  <div className="hero-buttons flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                     <button className="px-8 py-3 text-base sm:text-lg font-bold rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700 text-white transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-indigo-500/25">
                       Download CV
                     </button>
@@ -479,21 +539,22 @@ function App() {
                 </div>
               </div>
 
-              <div id="about" className="container mx-auto py-12 ">
+              {/* About Section */}
+              <div id="about" className="container mx-auto py-12">
                 <div className="max-w-6xl mx-auto">
-                  <h2 className="text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-blue-500 via-purple-600 to-pink-600 text-transparent bg-clip-text  tracking-tigh text-center mb-4">
+                  <h2 className="about-title text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-blue-500 via-purple-600 to-pink-600 text-transparent bg-clip-text tracking-tight text-center mb-4">
                     About Me
                   </h2>
 
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-center">
                     <div className="space-y-6 md:space-y-8">
-                      <p className="text-xl md:text-2xl text-gray-200 leading-relaxed font-light">
+                      <p className="about-text text-xl md:text-2xl text-gray-200 leading-relaxed font-light">
                         With over 2 years of experience, I have had the
                         privilege of working with companies and innovative
                         startups . My passion lies in creating scalable,
                         user-centric applications that make a real impact.
                       </p>
-                      <p className="text-xl md:text-2xl text-gray-200 leading-relaxed font-light">
+                      <p className="about-text text-xl md:text-2xl text-gray-200 leading-relaxed font-light">
                         I specialize in modern web technologies including React,
                         Node.js. My approach combines technical expertise with
                         creative problem-solving to deliver exceptional digital
@@ -646,7 +707,7 @@ function App() {
                 </div>
               </div>
 
-              <div id="skills" className="">
+              <div id="skills" className="skills-section">
                 <div className="text-center mb-8">
                   <h2 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-600 to-pink-600 mb-6 tracking-tight">
                     Professional Skills
@@ -661,7 +722,7 @@ function App() {
                   {Object.entries(skillCategories).map(([category, skills]) => (
                     <div
                       key={category}
-                      className="backdrop-blur-xl bg-gradient-to-br from-gray-800/90 to-gray-900/90 rounded-xl p-4 shadow-lg border border-gray-700/50 hover:border-indigo-500/30 transition duration-300 "
+                      className="skill-category backdrop-blur-xl bg-gradient-to-br from-gray-800/90 to-gray-900/90 rounded-xl p-4 shadow-lg border border-gray-700/50 hover:border-indigo-500/30 transition duration-300 "
                     >
                       <div className="flex items-center gap-2 mb-4">
                         {categoryIcons[category]}
@@ -698,9 +759,11 @@ function App() {
                   ))}
                 </div>
               </div>
+
+              {/* Projects Section */}
               <div
                 id="projects"
-                className="container mx-auto px-4 lg:px-8 mb-6"
+                className=" projects container mx-auto px-4 lg:px-8 mb-6"
               >
                 <div className="text-center mb-12">
                   <h2 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-600 to-pink-600 mb-6 tracking-tight">
@@ -847,6 +910,8 @@ function App() {
                   </div>
                 </div>
               </div>
+
+              {/* Contact Section */}
               <div id="contact" className="container mx-auto p-4 sm:p-8 mb-6">
                 <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-600 to-pink-600 mb-4 sm:mb-8 text-center tracking-tight">
                   Contact Me
@@ -932,6 +997,7 @@ function App() {
                 </div>
               </div>
 
+              {/* Empty Sections */}
               <div id="" className="container mx-auto p-4 sm:p-8 mb-6"></div>
               <div id="" className="container mx-auto p-4 sm:p-8 mb-6"></div>
             </div>

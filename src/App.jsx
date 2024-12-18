@@ -102,11 +102,10 @@ const skillCategories = {
     "TypeScript",
     "Next.js",
     "HTML5",
-    "CSS3",
+
     "TailwindCSS",
   ],
-  "Backend Development": ["Node.js", "Express.js", "RESTful APIs"],
-  "Database & Cloud": ["MongoDB", "PostgreSQL"],
+  "Backend Development": ["Node.js", "Express.js", "RESTful APIs", "MongoDB"],
 };
 
 const skillIcons = {
@@ -528,7 +527,7 @@ function App() {
                 </div>
                 <div className="w-full lg:w-2/3 flex flex-col gap-6 text-center lg:text-left">
                   <div className="hero-text flex items-center gap-3 justify-center lg:justify-start">
-                    <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-gray-100">
+                    <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-gray-100 ">
                       Kowshik
                     </h2>
                     <img src={waveHand} alt="Wave Hand" className="w-6 h-6" />
@@ -541,12 +540,20 @@ function App() {
                   </p>
 
                   <div className="hero-buttons flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                    <button className="px-8 py-3 text-base sm:text-lg font-bold rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700 text-white transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-indigo-500/25">
+                    <a
+                      href="https://drive.google.com/file/d/1hcQUih6hZPEYWTR-choIGCssgxcnduSr/view?usp=drive_link"
+                      target="_blank"
+                      className="px-8 py-3 text-base sm:text-lg font-bold rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700 text-white transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-indigo-500/25"
+                    >
                       Download CV
-                    </button>
-                    <button className="px-8 py-3 text-base sm:text-lg font-bold rounded-xl border-2 border-indigo-400 text-indigo-300 hover:bg-indigo-500/15 transform hover:scale-105 transition-all duration-300 backdrop-blur-sm">
+                    </a>
+                    <a
+                      href="https://www.linkedin.com/in/kowshik-n-4b126a1aa/"
+                      target="_blank"
+                      className="px-8 py-3 text-base sm:text-lg font-bold rounded-xl border-2 border-indigo-400 text-indigo-300 hover:bg-indigo-500/15 transform hover:scale-105 transition-all duration-300 backdrop-blur-sm"
+                    >
                       View LinkedIn
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -640,19 +647,20 @@ function App() {
                           <div className="col-start-6 col-end-10 p-4 my-4">
                             <div className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 backdrop-blur-lg rounded-2xl p-6 shadow-xl border border-gray-700/50 hover:border-indigo-500/30 transition-all duration-300">
                               <span className="text-indigo-400 font-semibold">
-                                2022 - Present
+                                June, 2023 – Present
                               </span>
                               <h3 className="text-2xl font-bold text-gray-100 mt-1">
-                                Senior Full Stack Developer
+                                FrontEnd Engineer
                               </h3>
-                              <p className="text-gray-300">Company Name</p>
+                              <p className="text-gray-300">DesignerX</p>
                               <p className="text-gray-400 mt-2">
-                                Led development of enterprise applications using
-                                React, Node.js, and cloud technologies.
-                                Implemented microservices architecture and
-                                improved system performance by 40%.
+                                Optimized application security and performance
+                                by reducing API calls, implementing caching
+                                mechanisms, lazy loading, code splitting, and
+                                efficient data handling practices reducing load
+                                times by 40%
                               </p>
-                              <div className="flex flex-wrap gap-2 mt-3">
+                              {/* <div className="flex flex-wrap gap-2 mt-3">
                                 <span className="px-3 py-1 bg-indigo-500/20 text-indigo-300 rounded-full text-sm">
                                   React
                                 </span>
@@ -662,7 +670,7 @@ function App() {
                                 <span className="px-3 py-1 bg-indigo-500/20 text-indigo-300 rounded-full text-sm">
                                   AWS
                                 </span>
-                              </div>
+                              </div> */}
                             </div>
                           </div>
                         </div>
@@ -687,19 +695,19 @@ function App() {
                           <div className="col-start-6 col-end-10 p-4 my-4">
                             <div className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 backdrop-blur-lg rounded-2xl p-6 shadow-xl border border-gray-700/50 hover:border-indigo-500/30 transition-all duration-300">
                               <span className="text-indigo-400 font-semibold">
-                                2019 - 2020
+                                Oct, 2022 – April, 2023
                               </span>
                               <h3 className="text-2xl font-bold text-gray-100 mt-1">
-                                Junior Developer
+                                Full Stack Intern
                               </h3>
-                              <p className="text-gray-300">First Company</p>
+                              <p className="text-gray-300">Iamneo </p>
                               <p className="text-gray-400 mt-2">
                                 Started career as a junior developer working on
                                 frontend development. Gained extensive
                                 experience in modern web technologies and best
                                 practices.
                               </p>
-                              <div className="flex flex-wrap gap-2 mt-3">
+                              {/* <div className="flex flex-wrap gap-2 mt-3">
                                 <span className="px-3 py-1 bg-indigo-500/20 text-indigo-300 rounded-full text-sm">
                                   HTML/CSS
                                 </span>
@@ -709,7 +717,7 @@ function App() {
                                 <span className="px-3 py-1 bg-indigo-500/20 text-indigo-300 rounded-full text-sm">
                                   Git
                                 </span>
-                              </div>
+                              </div> */}
                             </div>
                           </div>
                         </div>
@@ -789,42 +797,64 @@ function App() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {/* Project Card 1 */}
                   <div className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 backdrop-blur-lg rounded-2xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl border border-gray-700/50">
                     <img
-                      src="/project1.jpg"
-                      alt="E-Commerce Platform"
+                      src="/Events.png"
+                      alt="Events"
                       className="w-full h-48 sm:h-56 object-cover"
                     />
                     <div className="p-6">
-                      <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400 mb-4">
-                        Enterprise E-Commerce Platform
+                      <h3 className=" capitalize  line-clamp-2 h-[3.5rem] text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400 mb-4">
+                        Events
                       </h3>
                       <p className="text-gray-200 mb-6 text-base">
-                        A full-stack e-commerce solution with advanced features
-                        like real-time inventory, AI-powered recommendations,
-                        and seamless payment integration.
+                        Optimized application and implemented caching
+                        mechanisms, lazy loading, code splitting, and efficient
+                        data handling practices reducing load.
                       </p>
-                      <div className="flex flex-wrap gap-2 mb-6">
-                        <span className="px-3 py-1.5 bg-indigo-500/20 text-indigo-300 rounded-full text-sm font-medium">
-                          React
-                        </span>
-                        <span className="px-3 py-1.5 bg-indigo-500/20 text-indigo-300 rounded-full text-sm font-medium">
-                          Node.js
-                        </span>
-                        <span className="px-3 py-1.5 bg-indigo-500/20 text-indigo-300 rounded-full text-sm font-medium">
-                          MongoDB
-                        </span>
-                      </div>
+
                       <div className="flex gap-6">
                         <a
-                          href="#"
+                          href=""
                           className="text-indigo-400 hover:text-indigo-300 font-medium text-base"
                         >
                           Live Demo →
                         </a>
                         <a
-                          href="#"
+                          href="https://github.com/kowshik-n"
+                          className="text-indigo-400 hover:text-indigo-300 font-medium text-base"
+                        >
+                          GitHub →
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  {/* Project Card 1 */}
+                  <div className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 backdrop-blur-lg rounded-2xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl border border-gray-700/50">
+                    <img
+                      src="/Food.png"
+                      alt="food Platform"
+                      className="w-full h-48 sm:h-56 object-cover"
+                    />
+                    <div className="p-6">
+                      <h3 className="  capitalize  line-clamp-2 h-[3.5rem] text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400 mb-4">
+                        Food App
+                      </h3>
+                      <p className="text-gray-200 mb-6 text-base">
+                        Developed a comprehensive food delivery web application,
+                        enabling users to browse menus, place orders, and track
+                        deliveries in real-time with official Swiggy API.
+                      </p>
+
+                      <div className="flex gap-6">
+                        <a
+                          href="https://kowshik-foodapp.netlify.app/"
+                          className="text-indigo-400 hover:text-indigo-300 font-medium text-base"
+                        >
+                          Live Demo →
+                        </a>
+                        <a
+                          href="https://github.com/kowshik-n/food?tab=readme-ov-file"
                           className="text-indigo-400 hover:text-indigo-300 font-medium text-base"
                         >
                           GitHub →
@@ -836,39 +866,28 @@ function App() {
                   {/* Project Card 2 */}
                   <div className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 backdrop-blur-lg rounded-2xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl border border-gray-700/50">
                     <img
-                      src="/project2.jpg"
-                      alt="AI Analytics Dashboard"
+                      src="/E-commerce.png"
+                      alt="E-commerce"
                       className="w-full h-48 sm:h-56 object-cover"
                     />
                     <div className="p-6">
-                      <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400 mb-4">
-                        AI Analytics Dashboard
+                      <h3 className="capitalize  line-clamp-2 h-[3.5rem] text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400 mb-4">
+                        E-commerce
                       </h3>
                       <p className="text-gray-200 mb-6 text-base">
-                        Advanced analytics platform featuring real-time data
-                        visualization, predictive modeling, and interactive
-                        reporting tools.
+                        Used redux for getting data from centralized store &
+                        Implemented redux-thunk for writing async logic.
                       </p>
-                      <div className="flex flex-wrap gap-2 mb-6">
-                        <span className="px-3 py-1.5 bg-indigo-500/20 text-indigo-300 rounded-full text-sm font-medium">
-                          Next.js
-                        </span>
-                        <span className="px-3 py-1.5 bg-indigo-500/20 text-indigo-300 rounded-full text-sm font-medium">
-                          Python
-                        </span>
-                        <span className="px-3 py-1.5 bg-indigo-500/20 text-indigo-300 rounded-full text-sm font-medium">
-                          TensorFlow
-                        </span>
-                      </div>
+
                       <div className="flex gap-6">
                         <a
-                          href="#"
+                          href="https://shopclues-kowshik-n.netlify.app/"
                           className="text-indigo-400 hover:text-indigo-300 font-medium text-base"
                         >
                           Live Demo →
                         </a>
                         <a
-                          href="#"
+                          href="https://github.com/kowshik-n/E-commerce"
                           className="text-indigo-400 hover:text-indigo-300 font-medium text-base"
                         >
                           GitHub →
@@ -878,48 +897,6 @@ function App() {
                   </div>
 
                   {/* Project Card 3 */}
-                  <div className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 backdrop-blur-lg rounded-2xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl border border-gray-700/50">
-                    <img
-                      src="/project3.jpg"
-                      alt="Cloud Infrastructure"
-                      className="w-full h-48 sm:h-56 object-cover"
-                    />
-                    <div className="p-6">
-                      <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400 mb-4">
-                        Cloud Infrastructure Platform
-                      </h3>
-                      <p className="text-gray-200 mb-6 text-base">
-                        Scalable cloud infrastructure management system with
-                        automated deployment, monitoring, and disaster recovery
-                        capabilities.
-                      </p>
-                      <div className="flex flex-wrap gap-2 mb-6">
-                        <span className="px-3 py-1.5 bg-indigo-500/20 text-indigo-300 rounded-full text-sm font-medium">
-                          AWS
-                        </span>
-                        <span className="px-3 py-1.5 bg-indigo-500/20 text-indigo-300 rounded-full text-sm font-medium">
-                          Docker
-                        </span>
-                        <span className="px-3 py-1.5 bg-indigo-500/20 text-indigo-300 rounded-full text-sm font-medium">
-                          Kubernetes
-                        </span>
-                      </div>
-                      <div className="flex gap-6">
-                        <a
-                          href="#"
-                          className="text-indigo-400 hover:text-indigo-300 font-medium text-base"
-                        >
-                          Case Study →
-                        </a>
-                        <a
-                          href="#"
-                          className="text-indigo-400 hover:text-indigo-300 font-medium text-base"
-                        >
-                          GitHub →
-                        </a>
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
 
@@ -940,10 +917,10 @@ function App() {
                             Email
                           </h3>
                           <a
-                            href="mailto:your.email@example.com"
+                            href="mailto:nkowshik2001@example.com"
                             className="text-sm sm:text-base text-indigo-400 hover:text-indigo-300 break-all"
                           >
-                            your.email@example.com
+                            nkowshik2001@gmail.com
                           </a>
                         </div>
                       </div>
@@ -960,7 +937,7 @@ function App() {
                             href="tel:+1234567890"
                             className="text-sm sm:text-base text-indigo-400 hover:text-indigo-300"
                           >
-                            +1 (234) 567-890
+                            +91 9361404537
                           </a>
                         </div>
                       </div>
@@ -976,12 +953,12 @@ function App() {
                             GitHub
                           </h3>
                           <a
-                            href="https://github.com/yourusername"
+                            href="https://github.com/kowshik-n"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-sm sm:text-base text-indigo-400 hover:text-indigo-300 break-all"
                           >
-                            github.com/yourusername
+                            github.com/kowshik-n
                           </a>
                         </div>
                       </div>
@@ -995,12 +972,12 @@ function App() {
                             LinkedIn
                           </h3>
                           <a
-                            href="https://linkedin.com/in/yourusername"
+                            href="https://www.linkedin.com/in/kowshik-n-4b126a1aa/"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-sm sm:text-base text-indigo-400 hover:text-indigo-300 break-all"
                           >
-                            linkedin.com/in/yourusername
+                            linkedin.com/in/kowshik-n-4b126a1aa/
                           </a>
                         </div>
                       </div>

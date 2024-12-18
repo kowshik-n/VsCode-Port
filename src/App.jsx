@@ -408,6 +408,19 @@ function App() {
       duration: 1,
       ease: "power4.out",
     });
+
+    gsap.from(".contact", {
+      scrollTrigger: {
+        trigger: ".contact",
+        start: "top 80%",
+        toggleActions: "play none none reverse",
+      },
+      opacity: 0,
+      x: 50,
+      stagger: 0.2,
+      duration: 1,
+      ease: "power4.out",
+    });
   });
 
   return (
@@ -432,7 +445,7 @@ function App() {
           <div className="rounded-full mr-5 w-3 h-3 bg-emerald-400" />
         </div>
       </div>
-      <div className="min-h-screen bg-background flex flex-col lg:flex-row relative">
+      <div className="min-h-screen bg-[#212121] flex flex-col lg:flex-row relative">
         <div
           className={`flex-1 transition-all duration-300 ${
             isSidebarVisible ? "lg:ml-[17.75rem]" : "ml-11"
@@ -470,7 +483,7 @@ function App() {
                 </div>
               </div>
               {isSidebarVisible && (
-                <div className="fixed left-11 top-0 h-full w-60 bg-black/90 text-white border-r border-[#3c3c3c] z-40 hidden lg:block mt-7">
+                <div className="fixed left-11 top-0 h-full w-60  text-white border-r border-[#3c3c3c] z-40 hidden lg:block mt-7">
                   <div className="p-4 text-sm text-[#bbbbbb] font-semibold uppercase tracking-wide">
                     Explorer
                   </div>
@@ -496,7 +509,7 @@ function App() {
                 </div>
               )}
             </div>
-            <div className="space-y-20 px-4 lg:px-8">
+            <div className="space-y-20 px-4 lg:px-8 bg-[#212121]">
               {/* Hero Section */}
               <h1
                 id="home"
@@ -505,8 +518,7 @@ function App() {
                 Welcome to My Portfolio
               </h1>
 
-              <div className="container mx-auto flex flex-col lg:flex-row items-center justify-between gap-8 px-4 lg:px-8">
-                <div className="w-full lg:w-1/5 flex justify-center"></div>
+              <div className="container mx-auto flex flex-col lg:flex-row items-center justify-between gap-8 px-4 lg:px-8 max-w-4xl">
                 <div className="w-full lg:w-1/3 flex justify-center">
                   <img
                     src="/1.jpg"
